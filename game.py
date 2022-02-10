@@ -351,12 +351,12 @@ if __name__ == '__main__':
 
                         else:
                             [i.damage(self.exp_x, self.exp_y, self.v, 100) for i in characters]
-                        pygame.time.set_timer(MYEVENTTYPE2, 10)
+                        pygame.time.set_timer(MYEVENTTYPE2, 100)
 
                 elif self.exp:
                     self.explode()
                 else:
-                    pygame.time.set_timer(MYEVENTTYPE2, 10)
+                    pygame.time.set_timer(MYEVENTTYPE2, 100)
                     all_sprites.remove(self)
 
             def explode(self):
@@ -372,7 +372,7 @@ if __name__ == '__main__':
             screen.blit(bg, (0, 0))
             if sp_down:
                 font = pygame.font.Font(None, 50)
-                text = font.render(f"V={int((v - 60) // 1.4)}%", True, (100, 255, 100))
+                text = font.render(f"V={int((v - 60) // 1.4)}%", True, (50, 205, 50))
                 screen.blit(text, (screen.get_width() - 180, 20))
             text = pygame.font.Font(None, 75).render(f"Player {player + 1}", True,
                                                      (200 * player, 0, abs(player - 1) * 200))
@@ -484,6 +484,7 @@ if __name__ == '__main__':
                             shooted = False
                             pygame.time.set_timer(MYEVENTTYPE2, 0)
             if screen_update():
+                pygame.time.set_timer(MYEVENTTYPE2, 0)
                 return 3
 
 
